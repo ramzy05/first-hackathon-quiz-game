@@ -81,10 +81,32 @@ section{
   display: block;
   position: absolute;
   top: 0;
-  width: 50%;
   height: 100%;
   background: #18ce46;
   border-radius: 50px;
+}
+
+.anim{
+  animation: animation-pro-bar 15s forwards;
+}
+
+@keyframes animation-pro-bar {
+  0%{
+    width: 0;
+  }
+	50%{
+		background: rgb(12, 175, 53);	
+	}
+	75%{
+		background: yellow;
+	}
+	85%{
+		background: red;
+	}
+  100%{
+		background: red;
+    width: 100%;
+  }
 }
 
 .rect{
@@ -121,6 +143,7 @@ section{
   border: 1px solid #2eb7f4;
   transition: .7s all ease ;
   margin-bottom: 10px;
+  height: 45px;
   cursor: pointer;
 }
 
@@ -143,7 +166,7 @@ section{
 
 .check{
   color: #18ce46;
- /*  display: none; */
+  display: none;
 
 }
 .xmark{
