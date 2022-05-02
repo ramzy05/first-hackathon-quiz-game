@@ -51,6 +51,7 @@ li{
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .first-sect{
@@ -200,7 +201,8 @@ button:hover{
 
 .rule-box h3{
   color: #18ce46;
-
+  text-decoration: underline;
+  text-decoration-color: #18ce46;;
   font-size: 1.5rem;
 }
 
