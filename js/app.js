@@ -79,6 +79,18 @@ const quitBtn = document.querySelector('.quit-btn');
 const playBtn = document.querySelector('.play-btn');
 const homeBtn = document.querySelector('.home-btn');
 
+/*progress bar width*/
+let sectWidth = document.querySelector('section');
+
+let compStylesSect = window.getComputedStyle(sectWidth);
+
+
+let firstSect = compStylesSect.getPropertyValue('width');
+
+let widthProgBar = parseFloat((firstSect.slice(0, firstSect.length-2))) - 2;
+/* end progress bar width*/
+
+
 const ruleBox = document.querySelector('section .rule-box');
 const scoreBox = document.querySelector('section .score-box');
 const gameBox = document.querySelector('section .game-box');
@@ -143,6 +155,7 @@ quitBtn.addEventListener('click',(e)=>{
     gameBox.style.display ='none';
     scoreBox.style.left = '200';
     scoreBox.style.display ='none';
+    currentQuestId = 0;
   e.preventDefault()
 });
 homeBtn.addEventListener('click',(e)=>{
@@ -202,17 +215,37 @@ function startTime(time){
 }
 
 /* progress bar */
-function startTimeBar(time){
-  /* this function is incharge of the progress bar  */
-  idTimeProg = setInterval(timer, 25);
-  function timer(){
-    time += 1;
-    progBar.style.width = time + 'px';
-    if(time > 640){/*640 represent the width of the progress bar (in pixel)
-    so a that with the bar will stop progressing*/
-      clearInterval(idTimeProg);
-    }
-  };
+let timernInterval = 26;
+if(window.innerWidth > 768){
+
+  function startTimeBar(time){
+    /* this function is incharge of the progress bar  */
+    idTimeProg = setInterval(timer, 26);
+    function timer(){
+      time += 1;
+      progBar.style.width = time + 'px';
+  
+      if( time > widthProgBar){
+        clearInterval(idTimeProg);
+      }
+    };
+  
+  }
+}else{
+  
+  function startTimeBar(time){
+    /* this function is incharge of the progress bar  */
+    idTimeProg = setInterval(timer, 56);
+    function timer(){
+      time += 1;
+      progBar.style.width = time + 'px';
+  
+      if( time > widthProgBar){
+        clearInterval(idTimeProg);
+      }
+    };
+  
+  }
 }
 /* end progress bar */
 
@@ -237,6 +270,7 @@ function displayQuestions(){
 
 
 (function checkProp(){
+ 
   removeIcons();
   allProps.forEach((prop)=>{
     prop.addEventListener('click', (e)=>{

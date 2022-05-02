@@ -19,11 +19,14 @@ section{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 85%;
-  width: 50%;
+  min-height: 94%;
+  /* width: 50%; */
+  width: 633px;
   border: none;
   border-radius: 10px;
- 
+  /* padding: 20px 20px; */
+  overflow: hidden;
+
 }
 
 li{
@@ -54,14 +57,14 @@ li{
 /*   border: 1px solid red; */
   text-align: right;
   font-size: 1.5rem;
-  margin: 20px;
+  margin: 20px 0;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
   font-weight: 100;
-
+  width: 100%;
 }
 
 .time, .timetotal, .time ~ span{
@@ -76,7 +79,7 @@ li{
   height: 7px;
   position: relative;
   margin-top: 20px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   background-color: white;
   /* box-shadow: -1px -1px 10px #f219f5; */
 }
@@ -87,30 +90,11 @@ li{
   top: 0;
   height: 100%;
   background: #18ce46;
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 
-.anim{
-  animation: animation-pro-bar 15s forwards;
-}
-
-@keyframes animation-pro-bar {
-  0%{
-    width: 0;
-  }
-	50%{
-		background: rgb(12, 175, 53);	
-	}
-	75%{
-		background: yellow;
-	}
-	85%{
-		background: red;
-	}
-  100%{
-		background: red;
-    width: 100%;
-  }
+.time-box{
+  margin-right: 20px;
 }
 
 .rect{
@@ -124,6 +108,7 @@ li{
 
 .quest{
   margin: 10px 0;
+
 }
 
 .first-sect + p{
@@ -149,6 +134,8 @@ li{
   margin-bottom: 10px;
   height: 45px;
   cursor: pointer;
+  padding: 30px;
+
 }
 
 .resp-cont:hover{
@@ -208,7 +195,7 @@ button:hover{
 .rule-box{
   color: white;
   font-size: 1.15rem;
-  padding-left: 20px;
+  padding: 0 2px 0 10px;
 }
 
 .rule-box h3{
@@ -239,10 +226,7 @@ button:hover{
   color: #18ce46;
 }
 
-.score-box .score-container{
-  color: white;
-  font-size: 2rem;
-}
+
 
 .score-box p span{
   color: red;
@@ -259,7 +243,6 @@ button:hover{
 /*creation of slider for the different section of the page*/
 section > div{
   position: absolute;
-  transition: 2s;
 }
 
 section .rule-box{
@@ -275,3 +258,76 @@ section .score-box{
 }
 
 /*end creation*/
+
+
+
+@media only screen and (max-width:768px) {
+  /* mobile */
+
+  section{
+    width: 80%;
+  }
+
+  .container h2{
+    font-size: 2rem;
+  }
+  .score-box h2{
+    font-size: 1.6rem;
+
+  }
+
+  .score-box p{
+    font-size: 1.3rem;
+  }
+
+  .score-box .score-container{
+    color: white;
+    font-size: 1.5rem;
+  }
+  .rule-box{
+    color: white;
+    font-size: 1rem;
+    padding: 0 2px 0 10px;
+  }
+  
+  .rule-box h3{
+    font-size: 1.3rem;
+  }
+  
+  
+  .score-box i{
+    font-size: 5rem;
+    color: #18ce46;
+  }
+  
+  
+  
+  .score-box p span{
+    color: red;
+  }
+  
+  .home-btn{
+    margin-top: 50px;
+  }
+  
+  .rule-box .ctrl-btn{
+    margin-top: 50px;
+  }
+  .resp{
+    font-size: 1rem;
+  }
+  .first-sect + p{
+    font-size: 1.3rem;
+  }
+  .quest{
+    font-size: 1.15rem;
+  }
+  .time-box{
+    font-size: 1.4rem;
+  }
+
+  
+  .play-btn i{
+    font-size: 1rem;
+  }
+}
