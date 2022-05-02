@@ -190,7 +190,7 @@ function startTime(time){
       }
       time--;
     }else{
-      clearInterval(idTime);//we top the numeric timer 
+      clearInterval(idTime);//we top the numeric timer
       if(!answer){
         /* then here, we simply display icons to show the incorrect answers 
         and the correct one*/
@@ -204,9 +204,9 @@ function startTime(time){
           }else{
             xmarkIcon.style.display = 'inline-block';
           }
-      
         });
-         /* end of displaying icons*/
+        /* end of displaying icons*/
+        answer = true;//the time is finish we suppose that the user have choose a answer
       }
 
     }
