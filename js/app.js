@@ -31,7 +31,7 @@ let questions = [
       "<h1>",
     ]
   },
-  {
+  /* {
     question:"What does CSS stand for?",
     response:"Cascading Style Sheets",
     props:[
@@ -61,7 +61,7 @@ let questions = [
       'alertBox("Hello World")',
       'msg("Hello World")',
     ]
-  },
+  }, */
 ]
 
 /* end creating questions  */
