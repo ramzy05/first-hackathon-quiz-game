@@ -26,6 +26,9 @@ section{
  
 }
 
+li{
+  list-style-type: none;
+}
 .container{
   background: rgba( 255, 255, 255, 0 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -61,10 +64,11 @@ section{
 
 }
 
-.first-sect .time{
+.time, .timetotal, .time ~ span{
   color: rgb(248, 3, 3);
   font-weight: 600;
 }
+
 
 .prog-bar{
   width: 100%;
@@ -197,3 +201,77 @@ button{
 button:hover{
   background: #f119f5bd;
 }
+
+
+/* rule-box */
+
+.rule-box{
+  color: white;
+  font-size: 1.15rem;
+  padding-left: 20px;
+}
+
+.rule-box h3{
+  color: #18ce46;
+
+  font-size: 1.5rem;
+}
+
+.rule-box .rules{
+  margin-top: 25px;
+}
+/* end rule-box */
+
+/* score-box */
+.score-box h3{
+  justify-self: flex-end;
+}
+
+.score-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-box i{
+  font-size: 15rem;
+  color: #18ce46;
+}
+
+.score-box .score-container{
+  color: white;
+  font-size: 2rem;
+}
+
+.score-box p span{
+  color: red;
+}
+
+.home-btn{
+  margin-top: 50px;
+}
+
+.rule-box .ctrl-btn{
+  margin-top: 50px;
+}
+/* end  score-box */
+/*creation of slider for the different section of the page*/
+section > div{
+  position: absolute;
+  transition: 2s;
+}
+
+section .rule-box{
+  left: 0;
+}
+section .game-box{
+  left: 100%;
+  display: none;
+}
+section .score-box{
+  left: 200%;
+  display: none;
+}
+
+/*end creation*/

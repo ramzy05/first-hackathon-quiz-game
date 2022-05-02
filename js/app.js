@@ -31,7 +31,7 @@ let questions = [
       "<h1>",
     ]
   },
-  {
+  /* {
     question:"What does CSS stand for?",
     response:"Cascading Style Sheets",
     props:[
@@ -41,16 +41,27 @@ let questions = [
       "Colorful Style Sheets",
     ]
   },
+  
   {
-    question:"Which HTML attribute is used to define inline styles?",
-    response:"style",
+    question:"Inside which HTML element do we put the JavaScript?",
+    response:"<script>",
     props:[
-      "style",
-      "font",
-      "styles",
-      "class",
+      "<js>",
+      "<script>",
+      "<javascript>",
+      "<scripting>",
     ]
   },
+  {
+    question:'How do you write "Hello World" in an alert box?',
+    response:'alert("Hello World")',
+    props:[
+      'msgBox("Hello World")',
+      'alert("Hello World")',
+      'alertBox("Hello World")',
+      'msg("Hello World")',
+    ]
+  }, */
 ]
 
 /* end creating questions  */
@@ -65,6 +76,15 @@ const totalQuest = document.querySelector('.totalQuestion');
 const progBar = document.querySelector('.prog-bar span');
 const nextBtn = document.querySelector('.next-btn');
 const quitBtn = document.querySelector('.quit-btn');
+const playBtn = document.querySelector('.play-btn');
+const homeBtn = document.querySelector('.home-btn');
+
+const ruleBox = document.querySelector('section .rule-box');
+const scoreBox = document.querySelector('section .score-box');
+const gameBox = document.querySelector('section .game-box');
+
+const scoreContainer = document.querySelector('.score');
+const maxScoreContainer = document.querySelector('.maxScore');
 
 let score = 0, answer = false;/*
   score is going to take +1 everytime the user found the correct answer 
@@ -76,24 +96,69 @@ remainingTime.textContent = time;
 
 
 /* initialisation */
-displayQuestions()
+playBtn.addEventListener('click', (e)=>{
+  ruleBox.style.left = '-100%';
+  ruleBox.style.display = 'none';
+  gameBox.style.left = '0';
+  gameBox.style.display ='block';
+  answer = false;//make sure that the user don't give an answer
+  displayQuestions()
+  e.preventDefault()
+});
+
 /* end initialisation */
-
-
+/* event listener for all btn */
 
 nextBtn.addEventListener('click',(e)=>{
+  currentQuestId++;//index of the next question
   if(currentQuestId === questions.length){
-    alert('Votre score est de '+score+'/'+questions.length);
+    ruleBox.style.left = '-200%';
+    ruleBox.style.display = 'none';
+    gameBox.style.left = '-100%';
+    gameBox.style.display ='none';
+    scoreBox.style.left = '0';
+    scoreBox.style.display ='flex';
+    /* let's add the score inside score box */
+    scoreContainer.textContent = score;
+    maxScoreContainer.textContent = questions.length;
+    /* reinitialisation */
+    answer = false;
+    score = 0;
+    currentQuestId = 0;
+    /* end reinitialisation */
     e.preventDefault()
 
   }else{
-    currentQuestId++;
     answer = false;
     time = 15;
     displayQuestions()
     
   }
 })
+
+quitBtn.addEventListener('click',(e)=>{
+    ruleBox.style.left = '0';
+    ruleBox.style.display = 'block';
+    gameBox.style.left = '100%';
+    gameBox.style.display ='none';
+    scoreBox.style.left = '200';
+    scoreBox.style.display ='none';
+  e.preventDefault()
+});
+homeBtn.addEventListener('click',(e)=>{
+    ruleBox.style.left = '0';
+    ruleBox.style.display = 'block';
+    gameBox.style.left = '100%';
+    gameBox.style.display ='none';
+    scoreBox.style.left = '200';
+    scoreBox.style.display ='none';
+    answer = false;//make sure that the user don't give an answer
+  e.preventDefault()
+});
+
+/* end event listener for all btn */
+
+
 
 
 
@@ -193,20 +258,19 @@ function displayQuestions(){
           
         }else{
           checkIcon.style.display = 'none';
-          xmarkIcon.style.display = 'none';
-          //mark all other answers as false
+          xmarkIcon.style.display = 'inline-block';
+          //mark the good answer
           allProps.forEach((div)=>{
             let checkIcon = div.querySelector('.icons').children[0];
             let xmarkIcon =  div.querySelector('.icons').children[1];
             let resp = div.querySelector('.resp');
+            
             if(resp.textContent.slice(3) === questions[currentQuestId].response){
               checkIcon.style.display = 'inline-block';
               xmarkIcon.style.display = 'none';
-            }else{
-              xmarkIcon.style.display = 'inline-block';
             }
-        
           });
+          //end mark answer
         }
         answer = true;
 
@@ -248,4 +312,5 @@ function shuffle(array) {
 }
 
 /* end processing functions */
+
 

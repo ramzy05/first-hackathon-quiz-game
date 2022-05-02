@@ -10,13 +10,29 @@
 </head>
 <body>
   <section>
-    <div class="container">
-      <h2>QUIZ GAME</h2>
+    <div class="container rule-box">
+      <h2>R GAME</h2>
+      <h3>The rules of the game</h3>
+      <div class="rules">
+        <ul>
+          <li>1. You will have only <span class="timetotal">15 seconds</span> per each question</li>
+          <li>2. Once you select your answer, it can't be undone</li>
+          <li>3. You can't select any option once time goes off</li>
+          <li>4. You'll get points on the basis of your correct answer</li>
+        </ul>
+      </div>
+      <div class="ctrl-btn">
+        <button class="play-btn">Play <i class="fa-solid fa-play"></i></i></button>
+
+      </div>
+    </div>
+    <div class="container game-box">
+      <h2>R GAME</h2>
       <div class="first-sect">
-        <div class="time-box">Remaining Time: <span class="time"></span>s</div>
+        <div class="time-box">Remaining Time: <span class="time"></span><span>s</span></div>
         <div class="prog-bar"><span></span></div>
       </div>
-      <p class="act-quest"><span class="numQuest"></span> of <span class="totalQuestion"></span> questions</p>
+      <p class="act-quest">Question <span class="numQuest"></span> of <span class="totalQuestion"></span></p>
       <div class="second-sect rect">
         <div class="quest">HTML stands for?</div>
       </div>
@@ -47,6 +63,16 @@
 
         </div>
       </div>
+    </div>
+    <div class="container score-box">
+      <h2>CONGRATULATION</h2>
+      <div class="trophy-box">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <div class="score-container">
+        <p>Your score is <span class="score"></span><span>/</span><span class="maxScore"></span></p>
+      </div>
+      <button class="home-btn">Home</button>
     </div>
   </section>
   <script src="./js/app.js"></script>
