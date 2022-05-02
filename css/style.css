@@ -144,7 +144,10 @@ li{
   background: #f119f5bd;
 }
 
+
 .icons{
+  padding-left: 10px;
+  padding-top: 15px;
   position: absolute;
   top: 0;
   right: 0;
@@ -322,10 +325,7 @@ section .score-box{
   }
 
 
-  .icons{
-    padding-left: 10px;
-    padding-top: 15px;
-  }
+ 
 
 
   .first-sect + p{
