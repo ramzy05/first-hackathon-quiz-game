@@ -221,6 +221,8 @@ button:hover{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-size: 1.7rem;
 }
 
 .score-box i{
