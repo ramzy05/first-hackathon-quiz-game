@@ -198,7 +198,7 @@ function startTime(time){
           let checkIcon = div.querySelector('.icons').children[0];
           let xmarkIcon =  div.querySelector('.icons').children[1];
           let resp = div.querySelector('.resp');
-          if(resp.textContent.slice(3) === questions[currentQuestId].response){
+          if(resp.getAttribute('value').slice(3) === questions[currentQuestId].response){
             checkIcon.style.display = 'inline-block';
             xmarkIcon.style.display = 'none';
           }else{
@@ -263,7 +263,9 @@ function displayQuestions(){
   totalQuest.textContent = questions.length
   let currentProps = shuffle(questions[currentQuestId].props), propId = 0;
   allProps.forEach((prop)=>{
-    prop.querySelector('.resp').textContent = propId+ 1 +'. '+ currentProps[propId];
+    tmp = prop.querySelector('.resp');
+    tmp.setAttribute('value', propId + 1 +'. '+ currentProps[propId]);
+    prop.querySelector('.resp').textContent = tmp.getAttribute('value');
     propId++;
   })
 }
@@ -284,7 +286,7 @@ function displayQuestions(){
         checkIcon.style.display = 'none';
         xmarkIcon.style.display = 'none';
         
-        if(resp.textContent.slice(3) === questions[currentQuestId].response){
+        if(resp.getAttribute('value').slice(3) === questions[currentQuestId].response){
           //user found the correct answer
           checkIcon.style.display = 'inline-block';//success
           score++;//increase the score
@@ -299,7 +301,7 @@ function displayQuestions(){
             let xmarkIcon =  div.querySelector('.icons').children[1];
             let resp = div.querySelector('.resp');
             
-            if(resp.textContent.slice(3) === questions[currentQuestId].response){
+            if(resp.getAttribute('value').slice(3) === questions[currentQuestId].response){
               checkIcon.style.display = 'inline-block';
               xmarkIcon.style.display = 'none';
             }
